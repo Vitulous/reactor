@@ -9,7 +9,7 @@ client = discord.Client()
 async def daily():
     await client.wait_until_ready()
     while not client.is_closed:
-        await client.send_message(discord.Object(id='506143567400534016'), 'Новости дня: Кока - пидор.')
+        await client.send_message(discord.Object(id='517088248053628929'), 'Новости дня: Кока - пидор.')
         await asyncio.sleep(86400)
 '''async def alive():
     await client.wait_until_ready()
