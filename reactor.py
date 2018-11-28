@@ -39,7 +39,7 @@ async def on_message(message):
                     dice.append(die)
                     res += die
                 msg = 'Итого: ' + str(res).format(message)
-            await client.send_message(message.channel, dice)
+                await client.send_message(message.channel, dice)
             await client.send_message(message.channel, msg)
      elif message.content.startswith('!кока'):
         await client.send_file(message.channel, './koka.png')
