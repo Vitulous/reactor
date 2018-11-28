@@ -15,11 +15,11 @@ async def timed_job():
 @client.event
 async def on_message(message):
      if message.author == client.user:
-        return
+            return
      message.content = message.content.lower()
      if message.content.startswith('test'):
-        msg = 'test alright'.format(message)
-        await client.send_message(message.channel, msg)
+            msg = 'test alright'.format(message)
+            await client.send_message(message.channel, msg)
         
 @client.event
 async def on_ready():
