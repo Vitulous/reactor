@@ -21,11 +21,11 @@ async def daily():
 @client.event
 async def on_message(message):
      if message.author == client.user:
-        return
+            return
      message.content = message.content.lower()
      if message.content.startswith('test'):
-        msg = 'test alright'.format(message)
-        await client.send_message(message.channel, msg)
+            msg = 'test alright'.format(message)
+            await client.send_message(message.channel, msg)
      elif message.content.startswith('!бросок'):
             nums = re.findall('\d+', message.content)
             nums = list(map(int, nums))
@@ -41,11 +41,11 @@ async def on_message(message):
                 msg = 'Итого: ' + str(res).format(message)
             await client.send_message(message.channel, dice)
             await client.send_message(message.channel, msg)
-      elif message.content.startswith('!кока'):
+     elif message.content.startswith('!кока'):
         await client.send_file(message.channel, './koka.png')
-      elif message.content.startswith('!вождь'):
+     elif message.content.startswith('!вождь'):
         await client.send_file(message.channel, './rel.png')
-      elif message.content.startswith('!сплит'):
+     elif message.content.startswith('!сплит'):
         await client.send_file(message.channel, './split.png')
 @client.event
 async def on_ready():
