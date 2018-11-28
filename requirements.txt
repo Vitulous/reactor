@@ -1,5 +1,5 @@
 git
-discord
+discord==0.16
 pip
 asyncio
 APScheduler==3.0.0
