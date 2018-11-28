@@ -9,13 +9,13 @@ sched = BlockingScheduler()
 client = discord.Client()
 
 @sched.scheduled_job('interval', minutes=3)
-def timed_job():
+async def timed_job():
     await client.send_message(discord.Object(id='506143567400534016'), 'This job is run every three minutes.')
 
 @client.event
 async def on_message(message):
-        if message.author == client.user:
-            return
+     if message.author == client.user:
+        return
      message.content = message.content.lower()
      if message.content.startswith('test'):
         msg = 'test alright'.format(message)
