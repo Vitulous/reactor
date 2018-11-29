@@ -24,9 +24,6 @@ async def on_message(message):
      if message.author == client.user:
             return
      message.content = message.content.lower()
-     if message.content.startswith('test'):
-            msg = 'test alright'.format(message)
-            await client.send_message(message.channel, msg)
      elif message.content.startswith('!бросок'):
             nums = re.findall('\d+', message.content)
             nums = list(map(int, nums))
