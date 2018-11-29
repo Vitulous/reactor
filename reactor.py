@@ -9,8 +9,9 @@ client = discord.Client()
 async def daily():
     await client.wait_until_ready()
     while not client.is_closed:
-        await client.send_message(discord.Object(id='517088248053628929'), 'Новости дня: Кока - пидор.')
         await asyncio.sleep(86400)
+        await client.send_message(discord.Object(id='517088248053628929'), 'Новости дня: Кока - пидор.')
+        
 '''async def alive():
     await client.wait_until_ready()
     while not client.is_closed:
@@ -29,7 +30,7 @@ async def on_message(message):
      elif message.content.startswith('!бросок'):
             nums = re.findall('\d+', message.content)
             nums = list(map(int, nums))
-            if len(nums) > 2 or nums[0] > 100 or nums[0] == 0 or nums[1] == 0:
+            if len(nums) > 2 or nums[0] > 100 or nums[0] == 0 or nums[1] == 0 or nums[1] > 100:
                 msg = 'иди нахуй'
             else:
                 res = 0
