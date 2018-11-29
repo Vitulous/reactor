@@ -24,7 +24,7 @@ async def on_message(message):
      if message.author == client.user:
             return
      message.content = message.content.lower()
-     elif message.content.startswith('!бросок'):
+     if message.content.startswith('!бросок'):
             nums = re.findall('\d+', message.content)
             nums = list(map(int, nums))
             if len(nums) > 2 or nums[0] > 100 or nums[0] == 0 or nums[1] == 0 or nums[1] > 100:
