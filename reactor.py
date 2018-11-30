@@ -49,7 +49,7 @@ async def on_message(message):
         await client.send_file(message.channel, './rel.png')
      elif message.content.startswith('!сплит'):
         await client.send_file(message.channel, './split.png')'''
-    elif message.content.startswith('!'):
+     elif message.content.startswith('!'):
         await client.send_message(message.channel, 'иди нахуй')
 @client.event
 async def on_ready():
