@@ -43,14 +43,12 @@ async def on_message(message):
         user = message.author.id
         msg = ('<@' + str(user) + '>, ты пидор').format(message) 
         await client.send_message(message.channel, msg)
-'''     elif message.content.startswith('!кока'):
+     elif message.content.startswith('!кока'):
         await client.send_file(message.channel, './koka.png')
      elif message.content.startswith('!вождь'):
         await client.send_file(message.channel, './rel.png')
      elif message.content.startswith('!сплит'):
-        await client.send_file(message.channel, './split.png')'''
-     elif message.content.startswith('!'):
-        await client.send_message(message.channel, 'иди нахуй')
+        await client.send_file(message.channel, './split.png')
 @client.event
 async def on_ready():
     print('Logged in as')
