@@ -9,8 +9,8 @@ client = discord.Client()
 async def daily():
     await client.wait_until_ready()
     while not client.is_closed:
-        await client.send_message(discord.Object(id='517088248053628929'), 'Новости дня: Кока - пидор.')
         await asyncio.sleep(86400)
+        await client.send_message(discord.Object(id='517088248053628929'), 'Новости дня: Кока - пидор.')
         
 async def alive():
     await client.wait_until_ready()
@@ -43,12 +43,14 @@ async def on_message(message):
         user = message.author.id
         msg = ('<@' + str(user) + '>, ты пидор').format(message) 
         await client.send_message(message.channel, msg)
-     elif message.content.startswith('!кока'):
+'''     elif message.content.startswith('!кока'):
         await client.send_file(message.channel, './koka.png')
      elif message.content.startswith('!вождь'):
         await client.send_file(message.channel, './rel.png')
      elif message.content.startswith('!сплит'):
-        await client.send_file(message.channel, './split.png')
+        await client.send_file(message.channel, './split.png')'''
+    elif message.content.startswith('!'):
+        await client.send_message(message.channel, 'иди нахуй')
 @client.event
 async def on_ready():
     print('Logged in as')
