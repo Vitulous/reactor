@@ -35,6 +35,10 @@ async def on_message(message):
         user = message.author.id
         msg = ('<@' + str(user) + '>, ты рилкобот').format(message) 
         await client.send_message(message.channel, msg)
+     elif message.content.startswith('!'):
+        user = message.author.id
+        msg = ('<@' + str(user) + '>, бан тебе, сальник').format(message) 
+        await client.send_message(message.channel, msg)
      '''elif message.content.startswith('!кока'):
         await client.send_file(message.channel, './koka.png')
      elif message.content.startswith('!вождь'):
