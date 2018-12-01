@@ -3,22 +3,14 @@ import random
 import os
 import re
 import asyncio
-import requests as req
 
 client = discord.Client()
-async def daily():
+'''async def daily():
     await client.wait_until_ready()
     while not client.is_closed:
         await asyncio.sleep(86400)
-        await client.send_message(discord.Object(id='517088248053628929'), 'Новости дня: Кока - пидор.')
-        
-async def alive():
-    await client.wait_until_ready()
-    while not client.is_closed:
-        url = 'http://randompersonal.forum.wtf/'
-        await asyncio.sleep(1800)
-        keep = req.get(url)
-    
+        await client.send_message(discord.Object(id='517088248053628929'), 'Новости дня: Кока - пидор.')'''
+
 @client.event
 async def on_message(message):
      if message.author == client.user:
@@ -39,22 +31,21 @@ async def on_message(message):
                 msg = 'Итого: ' + str(res).format(message)
                 await client.send_message(message.channel, dice)
             await client.send_message(message.channel, msg)
-     elif message.content.startswith('!пидор'):
+     elif message.content.startswith('!бан'):
         user = message.author.id
-        msg = ('<@' + str(user) + '>, ты пидор').format(message) 
+        msg = ('<@' + str(user) + '>, ты рилкобот').format(message) 
         await client.send_message(message.channel, msg)
-     elif message.content.startswith('!кока'):
+     '''elif message.content.startswith('!кока'):
         await client.send_file(message.channel, './koka.png')
      elif message.content.startswith('!вождь'):
         await client.send_file(message.channel, './rel.png')
      elif message.content.startswith('!сплит'):
-        await client.send_file(message.channel, './split.png')
+        await client.send_file(message.channel, './split.png')'''
 @client.event
 async def on_ready():
     print('Logged in as')
     print(client.user.name)
     print(client.user.id)
     print('------')
-client.loop.create_task(daily())
-client.loop.create_task(alive())
+#client.loop.create_task(daily())
 client.run(os.getenv('TOKEN'))
