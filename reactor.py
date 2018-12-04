@@ -40,6 +40,9 @@ async def on_message(message):
             user = message.author.id
             msg = ('<@' + str(user) + '>, ты пидор').format(message) 
             await client.send_message(message.channel, msg)
+        elif message.content.startswith('!мишванда'):
+            msg = 'Хуй тебе, а не Мишванда'.format(msg)
+            await client.send_message(message.channel, msg)
         elif message.content.startswith('!хомяк'):
             await client.send_message(message.channel, 'Хомяки!')
         elif message.content.startswith('!кока'):
