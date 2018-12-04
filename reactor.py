@@ -16,7 +16,7 @@ async def on_message(message):
      if message.author == client.user:
             return
      message.content = message.content.lower()
-     if message.content.startswith('!бросок'):
+     '''if message.content.startswith('!бросок'):
             nums = re.findall('\d+', message.content)
             nums = list(map(int, nums))
             if len(nums) > 2 or nums[0] > 100 or nums[0] == 0 or nums[1] == 0 or nums[1] > 100:
@@ -30,21 +30,24 @@ async def on_message(message):
                     res += die
                 msg = 'Итого: ' + str(res).format(message)
                 await client.send_message(message.channel, dice)
+            await client.send_message(message.channel, msg)'''
+     if message.channel.id == '519415216547823616':
+        if message.content.startswith('!бан'):
+            user = message.author.id
+            msg = ('<@' + str(user) + '>, ты рилкобот').format(message) 
             await client.send_message(message.channel, msg)
-     elif message.content.startswith('!бан'):
-        user = message.author.id
-        msg = ('<@' + str(user) + '>, ты рилкобот').format(message) 
-        await client.send_message(message.channel, msg)
-     elif message.content.startswith('!'):
-        user = message.author.id
-        msg = ('<@' + str(user) + '>, бан тебе, сальник').format(message) 
-        await client.send_message(message.channel, msg)
-     '''elif message.content.startswith('!кока'):
-        await client.send_file(message.channel, './koka.png')
-     elif message.content.startswith('!вождь'):
-        await client.send_file(message.channel, './rel.png')
-     elif message.content.startswith('!сплит'):
-        await client.send_file(message.channel, './split.png')'''
+        elif message.content.startswith('!пидор'):
+            user = message.author.id
+            msg = ('<@' + str(user) + '>, ты пидор').format(message) 
+            await client.send_message(message.channel, msg)
+        elif message.content.startswith('!хомяк'):
+            await client.send_message(message.channel, 'Хомяки!')
+        elif message.content.startswith('!кока'):
+            await client.send_file(message.channel, './koka.png')
+        elif message.content.startswith('!вождь'):
+            await client.send_file(message.channel, './rel.png')
+        elif message.content.startswith('!сплит'):
+            await client.send_file(message.channel, './split.png')
 @client.event
 async def on_ready():
     print('Logged in as')
