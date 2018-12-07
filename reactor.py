@@ -37,13 +37,13 @@ async def on_message(message):
      if message.channel.id == '519415216547823616':
         if message.content.startswith('!пидорпомоги'):
             msg = ('''Хуе-мое, смотри сюда значит, есть такие команды:
-            !пидор
-            !главпидор
-            !ктоя
-            !кока
-            !вождь
-            !сплит
-            Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''').format(message)
+!пидор
+!главпидор
+!ктоя
+!кока
+!вождь
+!сплит
+Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''').format(message)
             await client.send_message(message.channel, msg)
         elif message.content.startswith('!пидор'):
             msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message) 
