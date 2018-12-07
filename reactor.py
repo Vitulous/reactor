@@ -44,6 +44,7 @@ async def on_message(message):
             !вождь
             !сплит
             Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''').format(message)
+            await client.send_message(message.channel, msg)
         elif message.content.startswith('!пидор'):
             msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message) 
             await client.send_message(message.channel, msg)
