@@ -38,6 +38,9 @@ async def on_message(message):
         if message.content.startswith('!пидор'):
             msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message) 
             await client.send_message(message.channel, msg)
+        elif message.content.startswith('!главпидор'):
+            msg = ('<@370330429980409858> - главный пидор нашего сообщества, горжусь им.').format(message) 
+            await client.send_message(message.channel, msg)
         elif message.content.startswith('!ктоя'):
             if (int(message.author.id) % 2 == 0): msg = ('<@' + str(message.author.id) + '>, ты рилкобот').format(message)
             elif message.author.id == '435413273500844033': msg = ('<@' + str(message.author.id) + '>, ты и есть Мишванда').format(message)
