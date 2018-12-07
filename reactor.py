@@ -35,13 +35,13 @@ async def on_message(message):
         await client.send_message(discord.Object(id='519415216547823616'), msg)
      message.content = message.content.lower()
      if message.channel.id == '519415216547823616':
-        if message.content.startswith('!бан'):
-            user = message.author.id
-            msg = ('<@' + str(user) + '>, ты рилкобот').format(message) 
-            await client.send_message(message.channel, msg)
         elif message.content.startswith('!пидор'):
-            user = message.author.id
-            msg = ('<@' + str(user) + '>, ты пидор').format(message) 
+            msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message) 
+            await client.send_message(message.channel, msg)
+        elif message.content.startwith('!ктоя')
+            if (int(message.author.id) % 2 == 0): msg = ('<@' + str(message.author.id) + '>, ты рилкобот').format(message)
+            elif message.author.id == '435413273500844033': msg = ('<@' + str(message.author.id) + '>, ты и есть Мишванда').format(message)
+            else: msg = ('<@' + str(message.author.id) + '>, ты твинк Мишванды').format(message)
             await client.send_message(message.channel, msg)
         elif message.content.startswith('!мишванда'):
             msg = 'Хуй тебе, а не Мишванда'.format(message)
