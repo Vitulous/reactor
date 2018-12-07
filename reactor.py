@@ -35,7 +35,16 @@ async def on_message(message):
         await client.send_message(discord.Object(id='519415216547823616'), msg)
      message.content = message.content.lower()
      if message.channel.id == '519415216547823616':
-        if message.content.startswith('!пидор'):
+        if message.content.startswith('!пидорпомоги'):
+            msg = ('''Хуе-мое, смотри сюда значит, есть такие команды:
+            !пидор
+            !главпидор
+            !ктоя
+            !кока
+            !вождь
+            !сплит
+            Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''')
+        elif message.content.startswith('!пидор'):
             msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message) 
             await client.send_message(message.channel, msg)
         elif message.content.startswith('!главпидор'):
@@ -46,9 +55,6 @@ async def on_message(message):
             elif message.author.id == '435413273500844033': msg = ('<@' + str(message.author.id) + '>, ты и есть Мишванда').format(message)
             else: msg = ('<@' + str(message.author.id) + '>, ты твинк Мишванды').format(message)
             await client.send_message(message.channel, msg)
-        elif message.content.startswith('!мишванда'):
-            msg = 'Хуй тебе, а не Мишванда'.format(message)
-            await client.send_message(message.channel, msg)
         elif message.content.startswith('!хомяк'):
             await client.send_message(message.channel, 'Хомяки!')
         elif message.content.startswith('!кока'):
@@ -57,6 +63,9 @@ async def on_message(message):
             await client.send_file(message.channel, './rel.png')
         elif message.content.startswith('!сплит'):
             await client.send_file(message.channel, './split.png')
+        elif message.content.startswith('!'):
+            msg = 'Чтобы посмотреть список текущих комманд, хуяни !пидорпомоги'.format(message)
+            await client.send_message(message.channel, msg)
 @client.event
 async def on_ready():
     print('Logged in as')
