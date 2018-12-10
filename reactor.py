@@ -13,8 +13,6 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
-     if message.author == client.user:
-            return
      '''if message.content.startswith('!бросок'):
             nums = re.findall('\d+', message.content)
             nums = list(map(int, nums))
@@ -31,8 +29,11 @@ async def on_message(message):
                 await client.send_message(message.channel, dice)
             await client.send_message(message.channel, msg)'''
      if message.channel in client.private_channels:
-        msg = message.content
+        msg = message.content.format(message)
+        idmsg = ('> ' + str(message.author) + ' | ' + str(message.author.id) + '''
+''' + msg).format(message)
         await client.send_message(discord.Object(id='519415216547823616'), msg)
+        await client.send_message(discord.Object(id='521658881710227457'), idmsg)
      message.content = message.content.lower()
      if message.channel.id == '519415216547823616':
         if message.content.startswith('!пидорпомоги'):
@@ -44,29 +45,29 @@ async def on_message(message):
 !вождь
 !сплит
 Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''').format(message)
-            await client.send_message(message.channel, msg)
-        elif message.content.startswith('!пидор'):
-            msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message) 
-            await client.send_message(message.channel, msg)
+            await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!главпидор'):
             msg = ('<@323030642419826689> - главный пидор нашего сообщества, горжусь им.').format(message) 
-            await client.send_message(message.channel, msg)
+            await client.send_message(discord.Object(id='519415216547823616'), msg)
+        elif message.content.startswith('!кока'):
+            await client.send_file((id='519415216547823616'), './koka.png')
+        elif message.content.startswith('!вождь'):
+            await client.send_file((id='519415216547823616'), './rel.png')
+        elif message.content.startswith('!сплит'):
+            await client.send_file((id='519415216547823616'), './split.png')
+        if message.author == client.user:
+            return
         elif message.content.startswith('!ктоя'):
             if (int(message.author.id) % 2 == 0): msg = ('<@' + str(message.author.id) + '>, ты рилкобот').format(message)
             elif message.author.id == '435413273500844033': msg = ('<@' + str(message.author.id) + '>, ты и есть Мишванда').format(message)
             else: msg = ('<@' + str(message.author.id) + '>, ты твинк Мишванды').format(message)
-            await client.send_message(message.channel, msg)
-        elif message.content.startswith('!хомяк'):
-            await client.send_message(message.channel, 'Хомяки!')
-        elif message.content.startswith('!кока'):
-            await client.send_file(message.channel, './koka.png')
-        elif message.content.startswith('!вождь'):
-            await client.send_file(message.channel, './rel.png')
-        elif message.content.startswith('!сплит'):
-            await client.send_file(message.channel, './split.png')
+            await client.send_message(discord.Object(id='519415216547823616'), msg)
+        elif message.content.startswith('!пидор'):
+            msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message) 
+            await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!'):
             msg = 'Чтобы посмотреть список текущих комманд, хуяни !пидорпомоги'.format(message)
-            await client.send_message(message.channel, msg)
+            await client.send_message((id='519415216547823616'), msg)
 @client.event
 async def on_ready():
     print('Logged in as')
