@@ -50,11 +50,11 @@ async def on_message(message):
             msg = ('<@323030642419826689> - главный пидор нашего сообщества, горжусь им.').format(message) 
             await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!кока'):
-            await client.send_file((id='519415216547823616'), './koka.png')
+            await client.send_file(discord.Object(id='519415216547823616'), './koka.png')
         elif message.content.startswith('!вождь'):
-            await client.send_file((id='519415216547823616'), './rel.png')
+            await client.send_file(discord.Object(id='519415216547823616'), './rel.png')
         elif message.content.startswith('!сплит'):
-            await client.send_file((id='519415216547823616'), './split.png')
+            await client.send_file(discord.Object(id='519415216547823616'), './split.png')
         if message.author == client.user:
             return
         elif message.content.startswith('!ктоя'):
