@@ -67,7 +67,7 @@ async def on_message(message):
             await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!'):
             msg = 'Чтобы посмотреть список текущих комманд, хуяни !пидорпомоги'.format(message)
-            await client.send_message((id='519415216547823616'), msg)
+            await client.send_message(discord.Object(id='519415216547823616'), msg)
 @client.event
 async def on_ready():
     print('Logged in as')
