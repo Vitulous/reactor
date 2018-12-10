@@ -55,7 +55,7 @@ async def on_message(message):
             await client.send_file(discord.Object(id='519415216547823616'), './rel.png')
         elif message.content.startswith('!сплит'):
             await client.send_file(discord.Object(id='519415216547823616'), './split.png')
-        if message.author == client.user:
+        elif message.author == client.user:
             return
         elif message.content.startswith('!ктоя'):
             if (int(message.author.id) % 2 == 0): msg = ('<@' + str(message.author.id) + '>, ты рилкобот').format(message)
