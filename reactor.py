@@ -29,10 +29,7 @@ async def on_message(message):
                 await client.send_message(message.channel, dice)
             await client.send_message(message.channel, msg)'''
      if message.channel in client.private_channels:
-        tmsg = message.content
-        msg = ('''```''' 
-+ tmsg +
-'''```''')
+        msg = message.content.format(message)
         idmsg = ('> ' + str(message.author) + ' | ' + str(message.author.id) + '''
 ''' + msg).format(message)
         await client.send_message(discord.Object(id='519415216547823616'), msg)
