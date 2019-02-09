@@ -29,7 +29,10 @@ async def on_message(message):
                 await client.send_message(message.channel, dice)
             await client.send_message(message.channel, msg)'''
      if message.channel in client.private_channels:
-        msg = message.content.format(message)
+        tmsg = message.content
+        msg = ('''```''' 
++ tmsg +
+'''```''')
         idmsg = ('> ' + str(message.author) + ' | ' + str(message.author.id) + '''
 ''' + msg).format(message)
         await client.send_message(discord.Object(id='519415216547823616'), msg)
@@ -47,7 +50,7 @@ async def on_message(message):
 Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!главпидор'):
-            msg = ('<@323030642419826689> - главный пидор нашего сообщества, горжусь им.').format(message) 
+            msg = ('<@517401689532137484> - главный пидор нашего сообщества, он соснет тебе.').format(message) 
             await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!кока'):
             await client.send_file(discord.Object(id='519415216547823616'), './koka.png')
