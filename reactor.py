@@ -13,22 +13,7 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
-    tmpsg = message.content
-     '''if message.content.startswith('!бросок'):
-            nums = re.findall('\d+', message.content)
-            nums = list(map(int, nums))
-            if len(nums) > 2 or nums[0] > 100 or nums[0] == 0 or nums[1] == 0 or nums[1] > 100:
-                msg = 'иди нахуй'
-            else:
-                res = 0
-                dice = []
-                for x in range(nums[0]):
-                    die = random.randint(1, nums[1])
-                    dice.append(die)
-                    res += die
-                msg = 'Итого: ' + str(res).format(message)
-                await client.send_message(message.channel, dice)
-            await client.send_message(message.channel, msg)'''
+     tmpsg = message.content
      if message.channel in client.private_channels:
         if message.content.startswith('!цветной'):
             womsg = tmpsg[9:]
