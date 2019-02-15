@@ -34,10 +34,12 @@ async def on_message(message):
 ''' + msg).format(message)
         await client.send_message(discord.Object(id='519415216547823616'), msg)
         await client.send_message(discord.Object(id='521658881710227457'), idmsg)
+     tmpsg = message.content
      message.content = message.content.lower()
      if message.channel.id == '519415216547823616':
         if message.content.startswith('!пидорпомоги'):
             msg = ('''Хуе-мое, смотри сюда значит, есть такие команды:
+!цветной (текст)
 !пидор
 !главпидор
 !ктоя
@@ -48,6 +50,16 @@ async def on_message(message):
             await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!главпидор'):
             msg = ('<@517401689532137484> - главный пидор нашего сообщества, он соснет тебе.').format(message) 
+            await client.send_message(discord.Object(id='519415216547823616'), msg)
+        elif message.content.startswith('!цветной'):
+            womsg = tmpsg[9:]
+            lang = ('diff', 'CSS', 'yaml', 'fix', 'brainfuck')               
+            colr = random.choice(lang)
+            if colr == 'diff': mns = '-'
+            else: mns = ''
+            msg = ('''```''' + colr + '''
+''' + mns + womsg + '''
+```''').format(message)     
             await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!кока'):
             await client.send_file(discord.Object(id='519415216547823616'), './koka.png')
