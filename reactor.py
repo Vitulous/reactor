@@ -60,15 +60,6 @@ async def on_message(message):
             elif message.author.id == '435413273500844033': msg = ('<@' + str(message.author.id) + '>, ты и есть Мишванда').format(message)
             else: msg = ('<@' + str(message.author.id) + '>, ты твинк Мишванды').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
-'''        elif message.author.id == '526548173527711744':
-            anonid = await client.get_user_info(526548173527711744)
-            if 'жанна кихот' in message.content:
-                slowpoke = random.randint(1, 10)
-                await asyncio.sleep(slowpoke)
-                tryit = random.randint(0, 3)
-                if tryit == 1:
-                    await client.send_file(anonid, './mishvanda.png')
-                else: return'''
         elif message.content.startswith('!пидор'):
             msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message) 
             await client.send_message(discord.Object(id='519415216547823616'), msg)
