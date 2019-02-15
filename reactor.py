@@ -13,6 +13,7 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
+    tmpsg = message.content
      '''if message.content.startswith('!бросок'):
             nums = re.findall('\d+', message.content)
             nums = list(map(int, nums))
@@ -29,12 +30,22 @@ async def on_message(message):
                 await client.send_message(message.channel, dice)
             await client.send_message(message.channel, msg)'''
      if message.channel in client.private_channels:
-        msg = message.content.format(message)
+        if message.content.startswith('!цветной'):
+            womsg = tmpsg[9:]
+            lang = ('diff', 'CSS', 'yaml', 'fix', 'brainfuck')               
+            colr = random.choice(lang)
+            if colr == 'diff': mns = '-'
+            else: mns = ''
+            msg = ('''```''' + colr + '''
+''' + mns + womsg + '''
+```''').format(message)
+        else:
+            msg = message.content.format(message)
         idmsg = ('> ' + str(message.author) + ' | ' + str(message.author.id) + '''
 ''' + msg).format(message)
         await client.send_message(discord.Object(id='519415216547823616'), msg)
         await client.send_message(discord.Object(id='521658881710227457'), idmsg)
-     tmpsg = message.content
+     
      message.content = message.content.lower()
      if message.channel.id == '519415216547823616':
         if message.content.startswith('!пидорпомоги'):
@@ -50,16 +61,6 @@ async def on_message(message):
             await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!главпидор'):
             msg = ('<@517401689532137484> - главный пидор нашего сообщества, он соснет тебе.').format(message) 
-            await client.send_message(discord.Object(id='519415216547823616'), msg)
-        elif message.content.startswith('!цветной'):
-            womsg = tmpsg[9:]
-            lang = ('diff', 'CSS', 'yaml', 'fix', 'brainfuck')               
-            colr = random.choice(lang)
-            if colr == 'diff': mns = '-'
-            else: mns = ''
-            msg = ('''```''' + colr + '''
-''' + mns + womsg + '''
-```''').format(message)     
             await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!кока'):
             await client.send_file(discord.Object(id='519415216547823616'), './koka.png')
