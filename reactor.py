@@ -55,7 +55,7 @@ async def on_message(message):
         elif message.content.startswith('!сплит'):
             await client.send_file(discord.Object(id='519415216547823616'), './split.png')
         elif message.content.startswith('!пидор'):
-            if len(message.mentions) > 0 and if not message.mentions[0].id == '517242247771586574':
+            if len(message.mentions) > 0 and message.mentions[0].id is not '517242247771586574':
                 msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
             else:                   
                 msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
