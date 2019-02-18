@@ -28,6 +28,11 @@ async def on_message(message):
             msg = message.content.format(message)
         idmsg = ('> ' + str(message.author) + ' | ' + str(message.author.id) + '''
 ''' + msg).format(message)
+        if message.content.startswith('!пидор'):
+            if len(message.mentions) < 1:
+                msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
+                await client.send_message(message.channel, msg)
+                return
         await client.send_message(discord.Object(id='519415216547823616'), msg)
         await client.send_message(discord.Object(id='521658881710227457'), idmsg)
      
@@ -59,9 +64,6 @@ async def on_message(message):
                 msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
             else:                   
                 msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
-                if message.channel in client.private_channels:
-                    await client.send_message(client.get_user_info(message.author.id), msg)
-                    return
             await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!ктоты'):
             if (int(message.mentions[0].id) % 2 == 0): msg = ('<@' + str(message.mentions[0].id) + '> - рилкобот').format(message)
