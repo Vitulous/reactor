@@ -28,12 +28,6 @@ async def on_message(message):
             msg = message.content.format(message)
         idmsg = ('> ' + str(message.author) + ' | ' + str(message.author.id) + '''
 ''' + msg).format(message)
-        if message.content.startswith('!пидор'):
-            if len(message.mentions) < 1:
-                msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
-                aself = await client.get_user_info(message.author.id)
-                await client.send_message(aself, msg)
-                return
         await client.send_message(discord.Object(id='519415216547823616'), msg)
         await client.send_message(discord.Object(id='521658881710227457'), idmsg)
      
@@ -51,21 +45,29 @@ async def on_message(message):
 !сплит
 Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
+            
         elif message.content.startswith('!главпидор'):
             msg = ('<@517401689532137484> - главный пидор нашего сообщества, он соснет тебе.').format(message) 
             await client.send_message(discord.Object(id='519415216547823616'), msg)
+            
         elif message.content.startswith('!кока'):
             await client.send_file(discord.Object(id='519415216547823616'), './koka.png')
+            
         elif message.content.startswith('!вождь'):
             await client.send_file(discord.Object(id='519415216547823616'), './rel.png')
+            
         elif message.content.startswith('!сплит'):
             await client.send_file(discord.Object(id='519415216547823616'), './split.png')
+            
         elif message.content.startswith('!пидор'):
             if len(message.mentions) > 0 and message.mentions[0].id is not '517242247771586574':
                 msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
+            elif message.author.id == '517242247771586574':
+                return
             else:                   
                 msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
+            
         elif message.content.startswith('!ктоты'):
             if (int(message.mentions[0].id) % 2 == 0): msg = ('<@' + str(message.mentions[0].id) + '> - рилкобот').format(message)
             elif message.mentions[0].id == '435413273500844033': msg = ('<@' + str(message.mentions[0].id) + '> - сама Мишванда').format(message)
