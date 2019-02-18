@@ -61,8 +61,8 @@ async def on_message(message):
                 msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
                 if message.channel in client.private_channels:
                     await client.send_message(message.author, msg)
-                else:
-                    await client.send_message(discord.Object(id='519415216547823616'), msg)
+                    return
+            await client.send_message(discord.Object(id='519415216547823616'), msg)
         elif message.content.startswith('!ктоты'):
             if (int(message.mentions[0].id) % 2 == 0): msg = ('<@' + str(message.mentions[0].id) + '> - рилкобот').format(message)
             elif message.mentions[0].id == '435413273500844033': msg = ('<@' + str(message.mentions[0].id) + '> - сама Мишванда').format(message)
