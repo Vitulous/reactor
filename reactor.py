@@ -31,7 +31,8 @@ async def on_message(message):
         if message.content.startswith('!пидор'):
             if len(message.mentions) < 1:
                 msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)
-                await client.send_message(message.channel, msg)
+                aself = await client.get_user_info(message.author.id)
+                await client.send_message(aself, msg)
                 return
         await client.send_message(discord.Object(id='519415216547823616'), msg)
         await client.send_message(discord.Object(id='521658881710227457'), idmsg)
