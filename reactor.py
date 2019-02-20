@@ -73,7 +73,7 @@ async def on_message(message):
             elif message.mentions[0].id == '435413273500844033': msg = ('<@' + str(message.mentions[0].id) + '> - сама Мишванда').format(message)
             elif message.mentions[0].id == '517242247771586574': msg = ('<@' + str(message.mentions[0].id) + '> - Анон, ты что, тупой?').format(message)  
             elif message.mentions[0].id == '314363965125820417': msg = ('<@' + str(message.mentions[0].id) + '> - шоколадное очко').format(message)    
-            else: msg = ('<@' + str(message.mentions[0]) + '> - твинк Мишванды').format(message)
+            else: msg = ('<@' + str(message.mentions[0].id) + '> - твинк Мишванды').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
            
         elif message.author == client.user:
