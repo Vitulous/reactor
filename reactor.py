@@ -59,6 +59,9 @@ async def on_message(message):
         elif message.content.startswith('!сплит'):
             await client.send_file(discord.Object(id='519415216547823616'), './split.png')
             
+        elif message.content.startswith('!миш'):
+            await client.send_file(discord.Object(id='519415216547823616'), './mishvanda.png')
+            
         elif message.content.startswith('!пидор'):
             if len(message.mentions) > 0 and message.mentions[0].id is not '517242247771586574':
                 msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
@@ -71,7 +74,7 @@ async def on_message(message):
         elif message.content.startswith('!ктоты'):
             if (int(message.mentions[0].id) % 2 == 0): msg = ('<@' + str(message.mentions[0].id) + '> - рилкобот').format(message)
             elif message.mentions[0].id == '435413273500844033': msg = ('<@' + str(message.mentions[0].id) + '> - сама Мишванда').format(message)
-            elif message.mentions[0].id == '517242247771586574': msg = ('<@' + str(message.mentions[0].id) + '> - Анон, ты что, тупой?').format(message)  
+            elif message.mentions[0].id == '516251605864153099': msg = ('<@' + str(message.mentions[0].id) + '> - пидор').format(message)  
             elif message.mentions[0].id == '314363965125820417': msg = ('<@' + str(message.mentions[0].id) + '> - шоколадное очко').format(message)    
             else: msg = ('<@' + str(message.mentions[0].id) + '> - твинк Мишванды').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
@@ -82,6 +85,7 @@ async def on_message(message):
             if (int(message.author.id) % 2 == 0): msg = ('<@' + str(message.author.id) + '>, ты рилкобот').format(message)
             elif message.author.id == '435413273500844033': msg = ('<@' + str(message.author.id) + '>, ты и есть Мишванда').format(message)
             elif message.author.id == '314363965125820417': msg = ('<@' + str(message.author.id) + '>, ты шоколадное очко').format(message)
+            elif message.author.id == '516251605864153099': msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)  
             else: msg = ('<@' + str(message.author.id) + '>, ты твинк Мишванды').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
 
