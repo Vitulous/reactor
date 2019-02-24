@@ -75,7 +75,7 @@ async def on_message(message):
             if (int(message.mentions[0].id) % 2 == 0): msg = ('<@' + str(message.mentions[0].id) + '> - рилкобот').format(message)
             elif message.mentions[0].id == '435413273500844033': msg = ('<@' + str(message.mentions[0].id) + '> - сама Мишванда').format(message)
             elif message.mentions[0].id == '516251605864153099': msg = ('<@' + str(message.mentions[0].id) + '> - пидор').format(message) 
-            elif message.mentions[0].id == '279345329139351563': msg = ('<@' + str(message.mentions[0].id) + '> - лох, то вечно промазывает').format(message)
+            elif message.mentions[0].id == '279345329139351563': msg = ('<@' + str(message.mentions[0].id) + '> - лох, что вечно промазывает').format(message)
             elif message.mentions[0].id == '517058500896096257': msg = ('<@' + str(message.mentions[0].id) + '> - натурал').format(message)  
             elif message.mentions[0].id == '314363965125820417': msg = ('<@' + str(message.mentions[0].id) + '> - шоколадное очко').format(message)    
             else: msg = ('<@' + str(message.mentions[0].id) + '> - твинк Мишванды').format(message)
@@ -89,7 +89,7 @@ async def on_message(message):
             elif message.author.id == '314363965125820417': msg = ('<@' + str(message.author.id) + '>, ты шоколадное очко').format(message)
             elif message.author.id == '516251605864153099': msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)  
             elif message.author.id == '517058500896096257': msg = ('<@' + str(message.author.id) + '> - натурал').format(message)  
-            elif message.author.id == '279345329139351563': msg = ('<@' + str(message.author.id) + '> - лох, то вечно промазывает').format(message)
+            elif message.author.id == '279345329139351563': msg = ('<@' + str(message.author.id) + '> - лох, что вечно промазывает').format(message)
             else: msg = ('<@' + str(message.author.id) + '>, ты твинк Мишванды').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
 
