@@ -96,7 +96,7 @@ async def on_message(message):
                 ranstart = (ranminutes * 60) + ranseconds
                 ranend = ranstart + 3
                 turl = tmpsg[12:]
-            else: turl = tmpsg[6:]
+            else: turl = tmpsg[5:]
             yturl = 'https://www.youtube.com/watch?v=' + turl
             givid = ydl.download([yturl])
             clip = VideoFileClip('ytvid.mp4')
