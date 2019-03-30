@@ -3,6 +3,18 @@ import random
 import os
 import re
 import asyncio
+import cv2
+from googletrans import Translator
+from moviepy.editor import *
+import youtube_dl
+
+translator = Translator()
+langs = ("af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "ca", "ceb", "ny", "zh-cn", "zh-tw", "co", "hr", "cs", "da", "nl", "en", "eo", "et", "tl", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "iw", "hi", "hmn", "hu", "is", "ig", "id", "ga", "it", "ja", "jw", "kn", "kk", "km", "ko", "ku", "ky", "lo", "la", "lv", "lt", "lb", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mn", "my", "ne", "no", "ps", "fa", "pl", "pt", "pa", "ro", "ru", "sm", "gd", "sr", "st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tg", "ta", "te", "th", "tr", "uk", "ur", "uz", "vi", "cy", "xh", "yi", "yo", "zu", "fil", "he")
+
+ydl = youtube_dl.YoutubeDL({'outtmpl': 'ytvid.mp4',
+                            'format': '135'})
+
+
 
 client = discord.Client()
 '''async def daily():
@@ -43,6 +55,8 @@ async def on_message(message):
 !кока
 !вождь
 !сплит
+!охлади (текст)
+!гиф (айди видео, только ютуб) или !гиф-хх-xx (айди), где хх-xx - время в минутах и секундах (например 00-01)
 Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
             
@@ -61,6 +75,45 @@ async def on_message(message):
             
         elif message.content.startswith('!миш'):
             await client.send_file(discord.Object(id='519415216547823616'), './mishvanda.png')
+            
+        elif message.content.startswith('!охлади'):
+            uwu = tmpsg[8:]
+            for i in range (10):
+                owo = random.choice(langs)
+                ttext = translator.translate(uwu, dest=owo).text
+                uwu = ttext
+            ttext = translator.translate(uwu, dest='ru').text
+            msg = ttext.format(message)
+            await client.send_message(discord.Object(id='519415216547823616'), msg)
+            
+        elif message.content.startswith('!гиф'):
+            if tmpsg[4] == '-':
+                ranminutes = int(tmpsg[5:7])
+                ranseconds = int(tmpsg[8:10])
+                if ranminutes > 99 or ranseconds > 60 or tmpsg[10] is not ' ':
+                await client.send_message(message.channel, 'иди нахуй')
+                return
+                ranstart = (ranminutes * 60) + ranseconds
+                ranend = ranstart + 3
+                turl = tmpsg[12:]
+            else: turl = tmpsg[6:]
+            yturl = 'https://www.youtube.com/watch?v=' + turl
+            givid = ydl.download([yturl])
+            clip = VideoFileClip('ytvid.mp4')
+            t_end = int(clip.duration)
+            if tmpsg[4] == '-' and ranstart >= t_end:
+                await client.send_message(message.channel, 'иди нахуй')
+                return
+            if tmpsg[4] is not '-':
+                ranend = random.randint(1, t_end)
+                ranstart = ranend - 3
+            clip = (clip
+            .subclip(ranstart, ranend)
+            .resize(0.5))
+            clip.write_gif("yt.gif", fps=20, program='imageio', opt='nq')
+            await client.send_file(message.channel, 'yt.gif')
+            os.remove('ytvid.mp4')
+            return
             
         elif message.content.startswith('!пидор'):
             if len(message.mentions) > 0 and message.mentions[0].id is not '517242247771586574':
