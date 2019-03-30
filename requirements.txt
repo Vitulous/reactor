@@ -2,3 +2,8 @@ git+https://github.com/Rapptz/discord.py
 pip
 asyncio
 requests
+googletrans
+opencv-python-headless
+moviepy
+ffmpeg
+youtube-dl-server
