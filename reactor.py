@@ -57,6 +57,7 @@ async def on_message(message):
 !сплит
 !охлади (текст)
 !гиф (айди видео, только ютуб) или !гиф-хх-xx (айди), где хх-xx - время в минутах и секундах (например 00-01)
+!? (вопрос)
 Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
             
@@ -86,7 +87,7 @@ async def on_message(message):
             msg = ttext.format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
             
-      elif message.content.startswith('--?'):
+      elif message.content.startswith('!?'):
           ebanswer = ('Полюбому', 'Точно', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется - да', 'Вероятнее всего', 'Есть все шансы', 'Да? Наверное?', 'Да', 'Хуй его знает', 'Иди нахуй с такими вопросами', 'Не скажу', 'Спроси у бати', 'Накопи кредитов и спроси опять', 'И не надейся', 'Хуй там', 'Нет', 'Не лезь туда, дибил', 'Весьма сомнительно')
           msg = random.choice(ebanswer).format(message)
           await client.send_message(discord.Object(id='519415216547823616'), msg)
