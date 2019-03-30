@@ -91,8 +91,8 @@ async def on_message(message):
                 ranminutes = int(tmpsg[5:7])
                 ranseconds = int(tmpsg[8:10])
                 if ranminutes > 99 or ranseconds > 60 or tmpsg[10] is not ' ':
-                await client.send_message(message.channel, 'иди нахуй')
-                return
+                  await client.send_message(message.channel, 'иди нахуй')
+                  return
                 ranstart = (ranminutes * 60) + ranseconds
                 ranend = ranstart + 3
                 turl = tmpsg[12:]
@@ -111,7 +111,7 @@ async def on_message(message):
             .subclip(ranstart, ranend)
             .resize(0.5))
             clip.write_gif("yt.gif", fps=20, program='imageio', opt='nq')
-            await client.send_file(message.channel, 'yt.gif')
+            await client.send_file(discord.Object(id='519415216547823616'), 'yt.gif')
             os.remove('ytvid.mp4')
             return
             
