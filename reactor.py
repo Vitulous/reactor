@@ -6,13 +6,13 @@ import asyncio
 import cv2
 from googletrans import Translator
 from moviepy.editor import *
-import youtube_dl
+#import youtube_dl
 
 translator = Translator()
 langs = ("af", "sq", "am", "ar", "hy", "az", "eu", "be", "bn", "bs", "bg", "ca", "ceb", "ny", "zh-cn", "zh-tw", "co", "hr", "cs", "da", "nl", "en", "eo", "et", "tl", "fi", "fr", "fy", "gl", "ka", "de", "el", "gu", "ht", "ha", "haw", "iw", "hi", "hmn", "hu", "is", "ig", "id", "ga", "it", "ja", "jw", "kn", "kk", "km", "ko", "ku", "ky", "lo", "la", "lv", "lt", "lb", "mk", "mg", "ms", "ml", "mt", "mi", "mr", "mn", "my", "ne", "no", "ps", "fa", "pl", "pt", "pa", "ro", "ru", "sm", "gd", "sr", "st", "sn", "sd", "si", "sk", "sl", "so", "es", "su", "sw", "sv", "tg", "ta", "te", "th", "tr", "uk", "ur", "uz", "vi", "cy", "xh", "yi", "yo", "zu", "fil", "he")
 
-ydl = youtube_dl.YoutubeDL({'outtmpl': 'ytvid.mp4',
-                            'format': '135'})
+#ydl = youtube_dl.YoutubeDL({'outtmpl': 'ytvid.mp4',
+#                            'format': '135'})
 
 
 
@@ -56,13 +56,12 @@ async def on_message(message):
 !вождь
 !сплит
 !охлади (текст)
-!гиф (айди видео, только ютуб) или !гиф-хх-xx (айди), где хх-xx - время в минутах и секундах (например 00-01)
 !? (вопрос)
 Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
             
         elif message.content.startswith('!главпидор'):
-            msg = ('<@517401689532137484> - главный пидор нашего сообщества, он соснет тебе.').format(message) 
+            msg = ('<@516251605864153099> - главный пидор нашего сообщества, хочет он этого, или нет.').format(message) 
             await client.send_message(discord.Object(id='519415216547823616'), msg)
             
         elif message.content.startswith('!кока'):
@@ -88,11 +87,11 @@ async def on_message(message):
             await client.send_message(discord.Object(id='519415216547823616'), msg)
             
         elif message.content.startswith('!?'):
-            ebanswer = ('Полюбому', 'Точно', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется - да', 'Вероятнее всего', 'Есть все шансы', 'Да? Наверное?', 'Да', 'Хуй его знает', 'Иди нахуй с такими вопросами', 'Не скажу', 'Спроси у бати', 'Накопи кредитов и спроси опять', 'И не надейся', 'Хуй там', 'Нет', 'Не лезь туда, дибил', 'Весьма сомнительно')
+            ebanswer = ('Полюбому', 'Точно', 'Никаких сомнений', 'Определенно да', 'Можешь быть уверен в этом', 'Мне кажется - да', 'Вероятнее всего', 'Есть все шансы', 'Да? Наверное?', 'Да', 'Хуй его знает', 'Иди нахуй с такими вопросами', 'Не скажу', 'Спроси у бати', 'Хули ты мне такие вопросы задаешь?', 'И не надейся', 'Хуй там', 'Нет', 'Не лезь туда, дибил', 'Весьма сомнительно')
             msg = random.choice(ebanswer).format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
             
-        elif message.content.startswith('!гиф'):
+        '''elif message.content.startswith('!гиф'):
             if tmpsg[4] == '-':
                 ranminutes = int(tmpsg[5:7])
                 ranseconds = int(tmpsg[8:10])
@@ -120,7 +119,7 @@ async def on_message(message):
             await client.send_file(discord.Object(id='519415216547823616'), 'yt.gif')
             os.remove('ytvid.mp4')
             return
-            
+            '''
         elif message.content.startswith('!пидор'):
             if len(message.mentions) > 0 and message.mentions[0].id is not '517242247771586574':
                 msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
@@ -147,8 +146,8 @@ async def on_message(message):
             elif message.author.id == '435413273500844033': msg = ('<@' + str(message.author.id) + '>, ты и есть Мишванда').format(message)
             elif message.author.id == '314363965125820417': msg = ('<@' + str(message.author.id) + '>, ты шоколадное очко').format(message)
             elif message.author.id == '516251605864153099': msg = ('<@' + str(message.author.id) + '>, ты пидор').format(message)  
-            elif message.author.id == '517058500896096257': msg = ('<@' + str(message.author.id) + '> - натурал').format(message)  
-            elif message.author.id == '279345329139351563': msg = ('<@' + str(message.author.id) + '> - лох, что вечно промазывает').format(message)
+            elif message.author.id == '517058500896096257': msg = ('<@' + str(message.author.id) + '>, ты натурал').format(message)  
+            elif message.author.id == '279345329139351563': msg = ('<@' + str(message.author.id) + '>, ты лох, что вечно промазывает').format(message)
             else: msg = ('<@' + str(message.author.id) + '>, ты твинк Мишванды').format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
 
