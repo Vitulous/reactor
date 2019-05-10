@@ -55,6 +55,7 @@ async def on_message(message):
 !кока
 !вождь
 !сплит
+!миша
 !охлади (текст)
 !? (вопрос)
 Если ты весь такой из себя дохуя аноним, то пиши мне в личку, я передам питухам.''').format(message)
@@ -91,35 +92,6 @@ async def on_message(message):
             msg = random.choice(ebanswer).format(message)
             await client.send_message(discord.Object(id='519415216547823616'), msg)
             
-        '''elif message.content.startswith('!гиф'):
-            if tmpsg[4] == '-':
-                ranminutes = int(tmpsg[5:7])
-                ranseconds = int(tmpsg[8:10])
-                if ranminutes > 99 or ranseconds > 60 or tmpsg[10] is not ' ':
-                  await client.send_message(message.channel, 'иди нахуй')
-                  return
-                ranstart = (ranminutes * 60) + ranseconds
-                ranend = ranstart + 3
-                turl = tmpsg[11:]
-            else: turl = tmpsg[5:]
-            yturl = 'https://www.youtube.com/watch?v=' + turl
-            givid = ydl.download([yturl])
-            clip = VideoFileClip('ytvid.mp4')
-            t_end = int(clip.duration)
-            if tmpsg[4] == '-' and ranstart >= t_end:
-                await client.send_message(message.channel, 'иди нахуй')
-                return
-            if tmpsg[4] is not '-':
-                ranend = random.randint(1, t_end)
-                ranstart = ranend - 3
-            clip = (clip
-            .subclip(ranstart, ranend)
-            .resize(0.5))
-            clip.write_gif("yt.gif", fps=20, program='imageio', opt='nq')
-            await client.send_file(discord.Object(id='519415216547823616'), 'yt.gif')
-            os.remove('ytvid.mp4')
-            return
-            '''
         elif message.content.startswith('!пидор'):
             if len(message.mentions) > 0 and message.mentions[0].id is not '517242247771586574':
                 msg = ('<@' + str(message.mentions[0].id) + '>, ты пидор').format(message)
@@ -141,6 +113,7 @@ async def on_message(message):
            
         elif message.author == client.user:
             return
+        
         elif message.content.startswith('!ктоя'):
             if (int(message.author.id) % 2 == 0): msg = ('<@' + str(message.author.id) + '>, ты рилкобот').format(message)
             elif message.author.id == '435413273500844033': msg = ('<@' + str(message.author.id) + '>, ты и есть Мишванда').format(message)
